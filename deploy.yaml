@@ -1,0 +1,21 @@
+apiVersioon: apps/v1
+kind: Deployment
+metadata:
+  name: app-deployment
+  labels:
+    app: custom
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: custom
+  template:
+    metadata:
+      labels:
+        app: custom
+    spec:
+      containers:
+        - name: project
+          image: bhargavgoud/project
+          ports:
+            - containerPort: 80
